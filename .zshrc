@@ -13,7 +13,8 @@ then
     export PATH=/opt/homebrew/bin:$PATH
 else
     echo ">>> CPU_ARCH: rosetta2"
-    export PATH=/usr/local/bin:/bin:/usr/bin:$PATH
+    export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
+    export PATH=/usr/local/bin:/usr/local/opt/ruby/bin:/bin:/usr/bin:$PATH
 fi
 
 zmodload zsh/zprof

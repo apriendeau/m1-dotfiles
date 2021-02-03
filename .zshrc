@@ -10,11 +10,11 @@ rosetta=$(sysctl -n sysctl.proc_translated)
 if [ $rosetta -eq 0 ];
 then
     echo ">>> CPU_ARCH: m1"
-    export PATH=/opt/homebrew/bin:$PATH
+    export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 else
     echo ">>> CPU_ARCH: rosetta2"
     export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
-    export PATH=/usr/local/bin:/usr/local/opt/ruby/bin:/bin:/usr/bin:$PATH
+    export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/bin:/usr/bin:$PATH
 fi
 
 zmodload zsh/zprof
@@ -64,3 +64,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 ssh-add -A 2>/dev/null;
+
+## Setup Rust
+PATH=$HOME/.cargo/bin:$PATH
+source $HOME/.cargo/env
